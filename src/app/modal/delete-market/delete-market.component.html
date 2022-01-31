@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Remove Market</h1>
+<div mat-dialog-content>Are you sure to remove <b>{{data.market.name}}</b> market ?</div>
+<div class="error">
+    {{error}}
+</div>
+
+<div fxLayout="row" fxLayoutAlign="end center"  class="actions">
+    <div mat-dialog-actions >
+        <button mat-button mat-dialog-close (click)="onCancel()" >Cancel</button>
+    </div>
+    
+    <div mat-dialog-actions >
+        <button mat-button  color="warn" (click)="onDelete()" ><mat-icon>delete</mat-icon> Remove</button>
+    </div>
+
+</div>

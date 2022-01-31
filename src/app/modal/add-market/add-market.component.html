@@ -1,0 +1,130 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+    <h1 mat-dialog-title>Add Market</h1>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center center" class="error">
+    <h1 mat-dialog-title>{{error}}</h1>
+</div>
+
+<form *ngIf="formMarket" [formGroup]="formMarket">
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <div fxLayout="column" fxLayoutAlign="center stretch">
+            <mat-form-field appearance="legacy" floatLabel="always" class="field">
+                <mat-label>Symbol</mat-label>
+                <input matInput formControlName="symbol" class="example-right-align" id="name" placeholder="ABC">
+
+                <mat-error *ngIf="formMarket.controls['symbol'].errors">
+                    Symbol is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="legacy" floatLabel="always" class="field">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" class="example-right-align" placeholder="Common Stock">
+                <mat-error *ngIf="formMarket.controls['name'].errors">
+                    Name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy" floatLabel="always" class="field">
+                <mat-label>Country</mat-label>
+                <input matInput formControlName="country" class="example-right-align" placeholder="United States">
+                <mat-error *ngIf="formMarket.controls['country'].errors">
+                    Country is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy" floatLabel="always" class="field">
+                <mat-label>Industry</mat-label>
+                <input matInput formControlName="industry" class="example-right-align" placeholder="Biotechnology">
+                <mat-error *ngIf="formMarket.controls['industry'].errors">
+                    Industry is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="legacy" floatLabel="always" class="field">
+                <mat-label>Year</mat-label>
+                <input matInput type="number" formControlName="ipoYear" class="example-right-align" placeholder="2022">
+                <mat-error *ngIf="formMarket.controls['ipoYear'].errors">
+                    Year is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center stretch">
+
+
+            <mat-form-field appearance="legacy" floatLabel="always" class="field">
+                <mat-label>Market Cap</mat-label>
+                <input matInput formControlName="marketCap" class="example-right-align" placeholder="11111111">
+                <mat-error *ngIf="formMarket.controls['marketCap'].errors">
+                    Market Cap is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy" floatLabel="always" class="field">
+                <mat-label>Sector</mat-label>
+                <input matInput formControlName="sector" class="example-right-align" placeholder="Health Care">
+                <mat-error *ngIf="formMarket.controls['sector'].errors">
+                    Market Cap is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy" floatLabel="always" class="field">
+                <mat-label>Volume</mat-label>
+                <input matInput type="number" formControlName="volume" class="example-right-align" placeholder="10">
+                <mat-error *ngIf="formMarket.controls['volume'].errors">
+                    Volume is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="legacy" floatLabel="always" class="field-number">
+                <mat-label>Net Change</mat-label>
+                <input matInput type="number" formControlName="netChange" class="example-right-align" placeholder="20">
+                <mat-error *ngIf="formMarket.controls['netChange'].errors">
+                    Net Change is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy" floatLabel="always" class="field-number">
+                <mat-label>Net Change Percent</mat-label>
+                <input matInput type="number" formControlName="netChangePercent" class="example-right-align"
+                    placeholder="50.5">
+                <span matSuffix>%</span>
+                <mat-error *ngIf="formMarket.controls['netChangePercent'].errors">
+                    Net Change is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <input  type="hidden" formControlName="createdAt" >
+        <input  type="hidden" formControlName="updatedAt">
+
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center">
+
+
+        <mat-form-field appearance="legacy" floatLabel="always" class="field-number">
+            <mat-label>Last Price</mat-label>
+            <span matPrefix>$</span>
+            <input matInput type="number" formControlName="lastPrice" class="example-right-align" placeholder="10.2">
+            <mat-error *ngIf="formMarket.controls['lastPrice'].errors">
+                Last Price is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+
+        <div mat-dialog-actions>
+            <button mat-raised-button color="primary" (click)="onAddMarket()" [disabled]="formMarket.invalid">
+                <mat-icon>add</mat-icon> {{isEdit}}
+            </button>
+        </div>
+        <div mat-dialog-actions>
+            <button mat-button mat-dialog-close (click)="onCancel()">Cancel</button>
+        </div>
+    </div>
+
+
+
+
+</form>
